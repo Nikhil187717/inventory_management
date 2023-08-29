@@ -1,0 +1,79 @@
+<html>
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Day');
+      data.addColumn('number', 'A');
+      data.addColumn('number', 'B');
+      data.addColumn('number', 'C');
+      data.addColumn('number', 'D');
+      
+
+      data.addRows([
+        [1,  0, 80, 41,50],
+        [2,  30, 69, 32,50],
+        [3,  25,   57, 25,50],
+        [4,  11, 18, 10,50],
+        [5,  11, 17, 10,50],
+        [6,   8, 13,7,5],
+        [7,   7, 12,  9,80],
+        [8,  12, 29, 10,50],
+        [9,  16, 42, 14,0],
+        [10, 12, 30, 11,40],
+        [11,  5,  8,  4,50],
+        [12,  6,  8,  5,50],
+        [13,  4,  6,  8.6,50],
+        [14,  4,  6,  3.4,0],
+        [15,  9,  6,  3.1,50],
+        [16,  4,  6,  1.4,50],
+        [17,  4,  6,  3.7,54],
+        [18,  1,  6,  2.4,50],
+        [19,  7,  6,  3.0,50],
+        [20,  9,  6,  3.0,50],
+        [21,  4,  6,  3.0,50],
+        [22, 55.,  6,  3.0,50],
+        [23,  4,  6,  3.0,50],
+        [25,  70,  6,  3.0,50],
+        [26,  77,  6,  3.0,50],
+        [27,  49,  6,  3.0,50],
+        [28,  4,  6,  3.0,50],
+        [29, 34,  6,  3.0,50],
+        [30,  10,  6,  3.0,50],
+        [31,  4,  6,  3.0,50],
+      ]);
+
+      var options = {
+        chart: {
+          title: 'MATERIAL CONSUMPTION ',
+          subtitle: 'QUANTITY USED'
+        },
+        width: 1500,
+        height: 600,
+        axes: {
+          x: {
+            0: {side: 'top'}
+          }
+        }
+      };
+
+      var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+  </script>
+</head>
+<body>
+  <div id="line_top_x"></div>
+  <br>
+  <br>
+  <button onclick="window.print()">Print</button>
+</body>
+</html>
+
