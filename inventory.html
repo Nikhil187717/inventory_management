@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IFB MAINTENANCE STORE OPERATION</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<style>
+  .reset-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  #redirectButton {
+    width: 150px;
+    /* Adjust the width to your desired size */
+    height: 55px;
+    color: black;
+    border-radius: 0.375rem;
+  }
+
+  #rs {
+    width: 150px;
+    /* Adjust the width to your desired size */
+    height: 49px;
+    color: black;
+    border-radius: 0.375rem;
+  }
+
+  #ms {
+    width: 150px;
+    /* Adjust the width to your desired size */
+    height: 49px;
+    color: black;
+    border-radius: 0.375rem;
+  }
+
+  #cr {
+    width: 150px;
+    /* Adjust the width to your desired size */
+    height: 54px;
+    color: black;
+    border-radius: 0.375rem;
+  }
+
+  #iil {
+    width: 150px;
+    /* Adjust the width to your desired size */
+    height: 49px;
+    color: black;
+    border-radius: 0.375rem;
+  }
+
+  /*center alignment of the table*/
+  .logo-image {
+    height: 0px;
+    /* Adjust the height to make the image smaller */
+    width: auto;
+    /* Maintain the aspect ratio of the image */
+    margin-right: 10px;
+    /* Add some spacing between the logo and the text */
+  }
+
+  .button-container {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 10px;
+    /* Adjust the spacing between buttons as needed */
+  }
+
+  /*added howering property*/
+  .form-control {
+    /* Your existing button styles */
+
+    /* Initial button color */
+    background-color: rgb(240, 234, 234);
+    /* Change to your preferred color */
+
+    /* Add transition for smooth color change */
+    transition: background-color 0.3s ease;
+  }
+
+  /* Hover effect */
+  .form-control:hover {
+    background-color: #555;
+    /* Change to the desired hover color */
+    color: white;
+    /* Change text color for better contrast */
+  }
+
+  .nt {
+    margin: 0 auto;
+    /* Center the table horizontally */
+    border-collapse: collapse;
+    width: 50%;
+    /* Set the table width */
+  }
+
+  /* Apply center alignment to table cell content */
+  td {
+    text-align: center;
+    border: 1px solid black;
+    padding: 8px;
+  }
+
+  /* Apply styling to the table header cells */
+  th {
+    text-align: center;
+    border: 1px solid black;
+    padding: 8px;
+    background-color: #f2f2f2;
+  }
+
+  .green-button {
+    width: auto;
+    /* Or specify a width value in pixels or percentage */
+    background-color: green;
+    color: white;
+  }
+
+  .blue-button {
+    width: auto;
+    /* Or specify a width value in pixels or percentage */
+    background-color: blue;
+    color: white;
+  }
+
+
+  /* Style the container div */
+  #scrollingContainer {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        /* Style the content inside the container */
+        #scrollingContent {
+            display: inline-block;
+            animation: scrollText 15s linear infinite; /* Adjust the duration as needed */
+        }
+
+        /* Define the scrolling animation */
+        @keyframes scrollText {
+            0% {
+                transform: translateX(400%);
+            }
+            100% {
+                transform: translateX(-400%);
+            }
+        }
+   
+</style>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="file:///C:/Users/Admin/Desktop/IFB%20project/login.html"><img
+            src="file:///C:/Users/Admin/Downloads/ifb.PNG" alt="Logo" class="logo-image"><b>MAINTENANCE STORE</b></a>
+
+
+
+<!-- 
+       <div class="d-flex align-items-center button-container">
+          <button id="redirectButton" class="form-control">LIVESTOCK STATUS</button>
+          <button id="rs" class="form-control">REQUEST STATUS</button>
+          <button id="iil" class="form-control">ISSUED ITEM LIST</button>
+          <button id="ms" class="form-control">Stock Info</button>
+          <button id="cr" class="form-control">CONSUMPTION REPORT</button>
+        
+        </div>  -->
+
+
+
+
+
+        <div class="d-flex align-items-center button-container">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <div class="tabs">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="" data-bs-toggle="tab" data-bs-target=""
+                    type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                    LIVESTOCK STATUS
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="" data-bs-toggle="tab" data-bs-target=""
+                    type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
+                    REQUEST STATUS
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="" data-bs-toggle="tab"data-bs-target="" 
+                  type="button" role="tab" aria-controls="update-stock-tab-pane"
+                    aria-selected="false">
+                    ISSUED ITEM LIST
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="" data-bs-toggle="tab"data-bs-target="" 
+                  type="button" role="tab" aria-controls="update-stock-tab-pane"
+                    aria-selected="false">
+                    STOCK INFO
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="" data-bs-toggle="tab"
+                    data-bs-target="" type="button" role="tab" aria-controls="update-stock-tab-pane"
+                    aria-selected="false">
+                    CONSUMPTION REPORT
+                  </button>
+                </li>
+              </ul>
+      </div>
+    </nav>
+  </header>
+
+
+
+  <script>
+    // Get a reference to the button element
+    var button = document.getElementById("redirectButton");
+
+    // Define the URL of the portal you want to redirect to
+    var portalURL1 = "file:///C:/Users/Admin/Desktop/IFB%20project/newlivestockpage.html";
+
+    // Add a click event listener to the button
+    button.addEventListener("click", function () {
+      // Simulate a button click
+      button.click();
+
+      // Redirect to the portal
+      window.location.href = portalURL1;
+    });
+  </script>
+  <script>
+    // Get a reference to the button element
+    var button = document.getElementById("iil");
+
+    // Define the URL of the portal you want to redirect to
+    var portalURL = "file:///C:/Users/Admin/Desktop/IFB%20project/issueditems.html";
+
+    // Add a click event listener to the button
+    button.addEventListener("click", function () {
+      // Simulate a button click
+      button.click();
+
+      // Redirect to the portal
+      window.location.href = portalURL;
+    });
+  </script>
+  <script>
+    // Get a reference to the button element
+    var button = document.getElementById("rs");
+
+    // Define the URL of the portal you want to redirect to
+    var portalURL2 = "file:///C:/Users/Admin/Desktop/IFB%20project/requestdatafunction.html";
+
+    // Add a click event listener to the button
+    button.addEventListener("click", function () {
+      // Simulate a button click
+      button.click();
+
+      // Redirect to the portal
+      window.location.href = portalURL2;
+    });
+  </script>
+  <script>
+    // Get a reference to the button element
+    var button = document.getElementById("cr");
+
+    // Define the URL of the portal you want to redirect to
+    var portalURL4 = "file:///C:/Users/Admin/Desktop/IFB%20project/test.html";
+
+    // Add a click event listener to the button
+    button.addEventListener("click", function () {
+      // Simulate a button click
+      button.click();
+
+      // Redirect to the portal
+      window.location.href = portalURL4;
+    });
+  </script>
+  <script>
+    // Get a reference to the button element
+    var button = document.getElementById("ms");
+
+    // Define the URL of the portal you want to redirect to
+    var portalURL3 = "file:///C:/Users/Admin/Desktop/IFB%20project/stockininfo.html";
+
+    // Add a click event listener to the button
+    button.addEventListener("click", function () {
+      // Simulate a button click
+      button.click();
+
+      // Redirect to the portal
+      window.location.href = portalURL3;
+    });
+  </script>
+  <main>
+    <div class="container">
+      <div class="heading">
+        <h1>
+          INVENTORY MANAGEMENT
+        </h1>
+      </div>
+      <div class="tabs">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <div class="tabs">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                  type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                  ADD STOCK
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
+                  type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
+                  ISSUE
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="update-stock-tab" data-bs-toggle="tab"
+                  data-bs-target="#update-stock-tab-pane" type="button" role="tab" aria-controls="update-stock-tab-pane"
+                  aria-selected="false">
+                  UPDATE STOCK
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade" id="clearstock-tab-pane" role="tabpanel" aria-labelledby="clearstock-tab"
+                tabindex="0">
+                <div class="heading">
+                </div>
+              </div>
+
+
+
+              <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                tabindex="0">
+                <div class="heading">
+                <h4 id="blinkText">INCOMING MATERIAL</h4>
+                <br>
+                </div>
+                <div class="add-item">
+                  <table class="table" id="edit">
+                    <thead>
+                      <tr>
+                        <th scope="col">Material Id</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Material Description</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Rack</th>
+                        <th scope="col">Section</th>
+                        <th scope="col">PO No.</th>
+                        <th scope="col">Set Buffer</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="text" name="materialId[]" /></td>
+                        <td>
+                          <select onchange="updatePropertiesDropdown(this)" class="input-cell" id="mid-list1">
+                            <option disabled selected value="">Select an option...</option>
+                            <!-- <option value="Fan">Fan</option>
+                            <option value="Convertor">Convertor</option> -->
+                            <!-- Add more options here -->
+                          </select>
+                        </td>
+                        <td> <select class="propertiesDropdown">
+                            <!-- Options will be populated dynamically -->
+                          </select>
+                        </td>
+                        <td><input type="number" name="quantity[]" /></td>
+                        <td><input type="text" name="rack[]" /></td>
+                        <td><input type="text" name="section[]" /></td>
+                        <td><input type="varchar" name="po[]" /></td>
+                        <td><input type="number" name="Buffer[]" /></td>
+                        <td><button class="reset-button" onclick="resetRow2(this)">Reset</button></td>
+                      </tr>
+                      <!-- You can add more rows as needed -->
+                    </tbody>
+                  </table>
+                  <button id="add" class="form-control blue-button">Add Row</button><br><br>
+
+                  <button id="submitButton1" onclick="addstockData2()" class="form-control green-button">Submit
+                    Data</button>
+                </div>
+              </div>
+              <br>
+              <div id="scrollingContainer">
+                <div id="scrollingContent">
+                   IFB INDUSTRIES,VERNA-GOA
+                </div>
+            </div>
+              <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
+                tabindex="0">
+                <div class="heading">
+                  <h4 id="blinkText1">PURCHASE ORDERS</h4>
+                </div>
+                <div class="add-item">
+
+                  <div class="mb-3">
+                    <label class="form-label">
+                      EMPLOYEE ID:
+                      <input id="outgoing_order_product_name" class="form-control" type="text" required
+                        name="employeeid" />
+                  </div>
+                  </label>
+
+                </div>
+
+                <div class="button-container">
+                  <button id="bt3" class="btn btn-success" type="button">
+                    QR SCAN
+                  </button> &nbsp; &nbsp;
+                  <button id="showFieldsBtn" class="btn btn-success" type="button">MANUAL</button>
+                </div>
+                <br><br>
+                <div id="formFields" style="display: none;">
+
+                  <table class="table" id="editableTable2">
+                    <thead>
+                      <tr>
+                        <th scope="col">Material Id</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Material Description</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Actions</th> <!-- Added Actions column -->
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="text" name="materialId[]" /></td>
+                        <td>
+                          <select onchange="updatePropertiesDropdown(this)" class="input-cell" id="mid-list2">
+                            <option disabled selected value="">Select an option...</option>
+                            <!-- <option value="Fan">Fan</option>
+                            <option value="Convertor">Convertor</option> -->
+                            <!-- Add more options here -->
+                          </select>
+                        </td>
+                        <td> <select class="propertiesDropdown">
+                            <!-- Options will be populated dynamically -->
+                          </select>
+                        </td>
+                        <td><input type="number" name="quantity[]" /></td>
+                        <td>
+                          <button class="reset-button" onclick="resetRow(this)">Reset</button>
+                        </td>
+                      </tr>
+                      <!-- You can add more rows as needed -->
+                    </tbody>
+                  </table>
+                  <button id="addRow2" class="form-control blue-button">Add Row</button>
+                  <br><br>
+                  <button id="submitButton2" onclick="addissueData2()" class="form-control green-button">Submit
+                    Data</button>
+                    
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                tabindex="0">
+
+                <div id="livestock"></div>
+              </div>
+              <div class="tab-pane fade" id="update-stock-tab-pane" role="tabpanel" aria-labelledby="update-stock-tab"
+                tabindex="0">
+                <div class="heading">
+                  <h4 id="blinkText2">UPDATE STOCK</h4>
+                </div>
+                <div class="add-item">
+                  <form id="update-stock-form" onsubmit="return validateForm()">
+                    <label for="fruits">
+                      MATERIAL ID:</label><br>
+                    <input type="text" id="fruits" list="mid-list">
+                    <datalist id="mid-list">
+                      <!-- Mid values fetched from the database will be added here dynamically -->
+                    </datalist>
+                    <br><br>
+                    <label class="form-label">
+                      UPDATE QUANTITY: <br>
+                      <input id="qt22" type="number" required name="qt223" />
+                    </label><br><br>
+                    <button id="submitButton33" onclick="updatestock()" class="form-control green-button">Submit
+                      Data</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </ul>
+      </div>
+    </div>
+    <!-- </div>
+    </div>
+    </div>
+    </div> -->
+  </main>
+  <!-- <script>
+      //for dynamic selection of categories in add stock add row
+      async function fetchData(apiUrl3) {
+      try {
+        const response = await fetch(apiUrl3);
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const data1 = await response.json();
+        return data1;
+      } catch (error) {
+        console.error('Fetch error:', error);
+        throw error;
+      }
+    }
+
+    const apiUrl3 = 'http://127.0.0.1:5000/datalist2'; // Update the URL to your backend endpoint
+
+    fetchData(apiUrl3)
+      .then(data1 => {
+        const datalist1 = document.getElementById('mid-list3');
+        const partcode = new Set(data1.map(item => item.category))
+        const partcodearray = Array.from(partcode)
+        console.log(partcodearray);
+        datalist1.innerHTML = '';
+        partcodearray.forEach(category => {
+          // console.log(option);
+          const optionElement = document.createElement('option');
+          optionElement.value = category; // Assuming your data structure has a 'value' property
+          optionElement.text = category
+          datalist1.appendChild(optionElement);
+        });
+      })
+      .catch(error => {
+        console.error('Usage error:', error);
+      });
+
+  </script> -->
+  <script>
+    //for dynamic selection of categories in issue
+    async function fetchData(apiUrl2) {
+      try {
+        const response = await fetch(apiUrl2);
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const data1 = await response.json();
+        return data1;
+      } catch (error) {
+        console.error('Fetch error:', error);
+        throw error;
+      }
+    }
+
+    const apiUrl2 = 'http://127.0.0.1:5000/datalist2'; // Update the URL to your backend endpoint
+
+    fetchData(apiUrl2)
+      .then(data1 => {
+        const datalist1 = document.getElementById('mid-list2');
+        const partcode = new Set(data1.map(item => item.category))
+        const partcodearray = Array.from(partcode)
+        console.log(partcodearray);
+        datalist1.innerHTML = '';
+        partcodearray.forEach(category => {
+          // console.log(option);
+          const optionElement = document.createElement('option');
+          optionElement.value = category; // Assuming your data structure has a 'value' property
+          optionElement.text = category
+          datalist1.appendChild(optionElement);
+        });
+      })
+      .catch(error => {
+        console.error('Usage error:', error);
+      });
+
+  </script>
+  <script>
+    //for dynamic selection of categories
+    async function fetchData(apiUrl1) {
+      try {
+        const response = await fetch(apiUrl1);
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const data1 = await response.json();
+        return data1;
+      } catch (error) {
+        console.error('Fetch error:', error);
+        throw error;
+      }
+    }
+
+    const apiUrl1 = 'http://127.0.0.1:5000/datalist2'; // Update the URL to your backend endpoint
+
+    fetchData(apiUrl1)
+      .then(data1 => {
+        const datalist1 = document.getElementById('mid-list1');
+        const partcode = new Set(data1.map(item => item.category))
+        const partcodearray = Array.from(partcode)
+        console.log(partcodearray);
+        datalist1.innerHTML = '';
+        partcodearray.forEach(category => {
+          // console.log(option);
+          const optionElement = document.createElement('option');
+          optionElement.value = category; // Assuming your data structure has a 'value' property
+          optionElement.text = category
+          datalist1.appendChild(optionElement);
+        });
+      })
+      .catch(error => {
+        console.error('Usage error:', error);
+      });
+
+  </script>
+  <script>
+    function validateForm() {
+      // Get the input values
+      var mii = document.getElementById("fruits").value;
+      var up = document.getElementById("qt22").value;
+
+      // Check if the materialId is empty
+      if (mii.trim() === "") {
+        alert("Material ID is required.");
+        return false; // Prevent form submission
+      }
+
+      // Check if updateQuantity is a positive number
+      if (isNaN(up) || up <= 0) {
+        alert("Update Quantity must be a positive number.");
+        return false; // Prevent form submission
+      }
+
+      // If all validations pass, allow the form submission
+      return true;
+    }
+  </script>
+
+  <!-- <script>
+    $(document).ready(function() {
+      $("#incomingForm").submit(function(event) {
+        if (!$.trim($("#incoming_order_product_name").val()) || 
+            !$.trim($("#incoming_order_product_quantity").val()) || 
+            !$.trim($("#incoming_order_product_price").val()) || 
+            !$.trim($("#sect").val())) {
+          alert("All fields are required.");
+          event.preventDefault(); // Prevent form submission
+        }
+      });
+    });
+  </script> -->
+
+  <script>
+    //reset row button for add stock
+    function resetRow2(button) {
+      const row = button.closest("tr");
+      const inputFields = row.querySelectorAll("input[type='text'], input[type='number'], select");
+
+      inputFields.forEach(input => {
+        if (input.tagName === "INPUT") {
+          input.value = "";
+        } else if (input.tagName === "SELECT") {
+          input.selectedIndex = 0;
+        }
+      });
+    }
+  </script>
+
+  <script>
+    //rest row button for issue
+    function resetRow(button) {
+      const row = button.closest("tr");
+      const inputFields = row.querySelectorAll("input[type='text'], input[type='number'], select");
+
+      inputFields.forEach(input => {
+        if (input.tagName === "INPUT") {
+          input.value = "";
+        } else if (input.tagName === "SELECT") {
+          input.selectedIndex = 0;
+        }
+      });
+    }
+  </script>
+
+  <script>
+    const apiUrl3 = 'http://127.0.0.1:5000/datalist2'; // Update the URL to your backend endpoint
+
+    document.getElementById('add').addEventListener('click', async function () {
+
+      const data1 = await fetchData(apiUrl3)
+
+      const partcode = new Set(data1.map(item => item.category))
+      const partcodearray = Array.from(partcode)
+
+      let optionContent = ""
+      partcodearray.forEach(category => {
+        optionContent += '<option value="' + category + '">' + category + '</option>'
+      });
+
+
+      const newRow = document.createElement('tr');
+      newRow.innerHTML = `<td><input type="text" name="materialId[]" /></td>
+                        <td>
+                          <select onchange="updatePropertiesDropdown(this)" class="input-cell" id="mid-list">
+                            <option disabled selected value="">Select an option...</option>
+                            `+ optionContent + `
+                          </select>
+                        </td>
+                        <td> <select class="propertiesDropdown">
+                            <!-- Options will be populated dynamically -->
+                          </select>
+                        </td>
+                        <td><input type="number" name="quantity[]" /></td>
+                        <td><input type="text" name="rack[]" /></td>
+                        <td><input type="text" name="section[]" /></td>
+                        <td><input type="varchar" name="po[]" /></td>
+                        <td><input type="number" name="Buffer[]" /></td>
+                        <td><button class="reset-button" onclick="resetRow2(this)">Reset</button></td>
+       `;
+
+      // Append the new row
+      document.querySelector('#edit tbody').appendChild(newRow);
+
+      // Fetch categories for the newly added row
+      const categorySelect = document.getElementById('mid-list2'); // Select by ID
+
+
+      // fetchData(apiUrl3)
+      //   .then(data1 => {
+      //     const datalist1 = document.getElementById('mid-list2');
+      //     const partcode = new Set(data1.map(item => item.category))
+      //     const partcodearray = Array.from(partcode)
+      //     console.log(partcodearray);
+      //     datalist1.innerHTML = '';
+      //     partcodearray.forEach(category => {
+      //       // console.log(option);
+      //       const optionElement = document.createElement('option');
+      //       optionElement.value = category; // Assuming your data structure has a 'value' property
+      //       optionElement.text = category
+      //       datalist1.appendChild(optionElement);
+      //     });
+      //     // populateDropdown(categorySelect, data1);
+
+      //   })
+      //   .catch(error => {
+      //     console.error('Usage error:', error);
+      //   });
+
+    });
+
+    // Function to update the propertiesDropdown options based on the selected mainDropdown value
+    function updatePropertiesDropdown(mainDropdown) {
+      const row = mainDropdown.closest('tr');
+      console.log(row)
+      const propertiesDropdown = row.querySelector('.propertiesDropdown');
+      // Clear existing options
+      propertiesDropdown.innerHTML = '';
+      // Get the selected value from mainDropdown
+      const selectedValue = mainDropdown.value;
+      const apiUrl1 = 'http://127.0.0.1:5000/datalist2'; // Update the URL to your backend endpoint
+      fetchData(apiUrl1)
+        .then(data1 => {
+          const datalist1 = document.getElementById('mid-list2');
+          // console.log(data1);
+          fmdesc = data1.filter(obj => obj.category == selectedValue)
+          // console.log(fmdesc);
+          propertiesDropdown.innerHTML = ''
+          fmdesc.forEach(option => {
+            // console.log(option);
+            const optionElement = document.createElement('option');
+            optionElement.value = option.mdescription; // Assuming your data structure has a 'value' property
+            optionElement.text = option.mdescription;
+            propertiesDropdown.appendChild(optionElement);
+          })
+          console.log(propertiesDropdown);
+
+        })
+    }
+  </script>
+
+
+  <script>
+    // ... Your existing code ...
+
+    function addstockData2() {
+      const table = document.getElementById('edit');
+      const rows = table.querySelectorAll('tbody tr');
+      const rowData1 = [];
+
+      rows.forEach(row => {
+        const cells = row.querySelectorAll('td input, td select');
+        const rowValues1 = {};
+
+        cells.forEach((cell, index) => {
+          const columnName1 = getColumnN(index); // Define a function to map indexes to column names
+          rowValues1[columnName1] = cell.value;
+        });
+        if (rowValues1.buffer == "" || rowValues1.category == "" || rowValues1.description == "" || rowValues1.materialId == "" || rowValues1.po == "" || rowValues1.quantity == "" || rowValues1.rack == "" || rowValues1.section == "") {
+          alert("All fields are mandatory")
+        } else {
+          rowData1.push(rowValues1);
+        }
+      });
+
+      // Display the input data in the console log
+      // console.log(rowData1);
+
+      //fetching part
+      var json_object = JSON.stringify({ rowData1: rowData1 })
+
+      fetch("http://127.0.0.1:5000/proin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: json_object
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response data
+          alert(data);
+          //   window.location.href = "file:///C:/Users/Admin/Desktop/IFB%20project/login.html";
+        })
+        .catch(error => {
+          console.error("Error sending data:", error);
+        });
+    }
+
+    // Define a function to map indexes to column names
+    function getColumnN(index) {
+      const columnNames1 = ['materialId', 'category', 'description', 'quantity', 'rack', 'section', 'po', 'buffer'];
+      return columnNames1[index];
+    }
+
+
+
+  </script>
+
+
+
+  <script>
+    $(document).ready(function () {
+      // Simulate a click on the "ADD STOCK" tab link
+      $("#profile-tab").click();
+    });
+  </script>
+  <style>
+    #showFieldsBtn {
+      background-color: #198754;
+      --bs-btn-color: ;
+      width: 90px;
+      /* Adjust the width to your desired size */
+      height: 37px;
+      color: #fff;
+      border-radius: 0.375rem;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+
+  <script>// code used for add stock initially
+
+    // $(document).ready(function() {
+    //   $("#incomingForm").submit(function(event) {
+    //     if (!$.trim($("#incoming_order_product_name").val()) ||
+    //         !$.trim($("#incoming_order_product_quantity").val()) ||
+    //         !$.trim($("#incoming_order_product_price").val()) ||
+    //         !$.trim($("#sect").val())) {
+    //       alert("All fields are required.");
+    //       event.preventDefault(); // Prevent form submission
+    //     }
+    //   });
+    // });
+
+
+  //   const addstockData = () => {
+  //     mi = $("#incoming_order_product_name").val()//mid
+  //     cat = $("#mainDropdown").val()//category
+  //     des = $("#propertiesDropdown").val()//description
+  //     qt = $("#incoming_order_product_quantity").val()//quantity
+  //     rac = $("#incoming_order_product_price").val()//rack
+  //     sec = $("#sect").val()//section
+
+  //     result = { mi: mi, cat: cat, des: des, qt: qt, rac: rac, sec: sec }
+  //     var json_object = JSON.stringify(result)
+
+  //     fetch("http://127.0.0.1:5000/proin", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json"
+  //       },
+  //       body: json_object
+  //     })
+  //       .then(response => response.json())
+  //       .then(data => {
+  //         // Handle the response data
+  //         console.log(data);
+  //         alert(data);
+
+  //       })
+  //       .catch(error => {
+  //         console.error("Error sending data:", error);
+  //       });
+  //   }
+  // </script>
+
+  <!-- <script> // code used for issue initially
+    function addissueData() {
+      var employeeId = document.getElementById("outgoing_order_product_name").value;
+      var materialId = document.getElementById("name").value;
+      var category = document.getElementById("state").value;
+      var description = document.getElementById("city").value;
+      var quantity = document.getElementById("quantity name").value;
+      // var datt = document.getElementById("dt").value;
+
+      result = { employeeId: employeeId, materialId: materialId, category: category, description: description, quantity: quantity }
+      console.log(result);
+      var json_object = JSON.stringify(result)
+
+      fetch("http://127.0.0.1:5000/prois", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: json_object
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response data
+          console.log(data);
+          alert(data);
+
+        })
+        .catch(error => {
+          console.error("Error sending data:", error);
+        });
+
+    }
+  </script> -->
+  <!-- <script> //code used for delete stock initially
+    function clearStockData() {
+      console.log("clearStockData function called");
+      var md = document.getElementById("abc").value; // Get the material ID input value
+      var dq = document.getElementById("desired quantity").value; // Get the desired quantity input value
+
+
+      result = { md: md, dq: dq }
+      console.log(result);
+      var json_object = JSON.stringify(result)
+      fetch("http://127.0.0.1:5000/proclear", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: json_object
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response data
+          console.log(data);
+          alert(data);
+
+        })
+        .catch(error => {
+          console.error("Error sending data:", error);
+        });
+    }
+  </script> -->
+
+
+  <script>
+    //code used for showing fields when clicked on MANUAL BUTTON in ISSUE
+    document.getElementById("showFieldsBtn").addEventListener("click", function () {
+      var formFields = document.getElementById("formFields");
+      formFields.style.display = "block";
+    });
+  </script>
+  <script>
+    //sds
+    // Create two dropdowns
+    function updateCities2() {
+      var stateDropdown = document.getElementById("mainDropdown");
+      var cityDropdown = document.getElementById("propertiesDropdown");
+
+      var selectedState = stateDropdown.value;
+
+      // Clear the city dropdown
+      cityDropdown.innerHTML = "";
+
+      // Populate the city dropdown based on the selected state
+      if (selectedState === "Convertor") {
+        var californiaCities = ["POWER CONVERTOR DK-30", "DC TO AC CONVERTER"];
+        californiaCities.forEach(function (city) {
+          var option = document.createElement("option");
+          option.text = city;
+          cityDropdown.add(option);
+        });
+      } else if (selectedState === "Fan") {
+        var newYorkCities = ["COOLING FAN REXNORD -REC 6025 A24 24VDC", "OPERATOR FAN", "Motor Assy. Fan 24270-13131-71"];
+        newYorkCities.forEach(function (city) {
+          var option = document.createElement("option");
+          option.text = city;
+          cityDropdown.add(option);
+        });
+      } // Add more states and their cities here
+    }
+  </script>
+
+
+  <!-- <script>
+    //THIS CODE WAS INITIALLY USED TO CREATE SELECTIVE DROPDOWNS
+    //sds
+    // Create two dropdowns
+    function updateCities() {
+      var stateDropdown = document.getElementById("state");
+      var cityDropdown = document.getElementById("city");
+
+      var selectedState = stateDropdown.value;
+
+      // Clear the city dropdown
+      cityDropdown.innerHTML = "";
+
+      // Populate the city dropdown based on the selected state
+      if (selectedState === "Convertor") {
+        var californiaCities = ["POWER CONVERTOR DK-30", "DC TO AC CONVERTER"];
+        californiaCities.forEach(function (city) {
+          var option = document.createElement("option");
+          option.text = city;
+          cityDropdown.add(option);
+        });
+      } else if (selectedState === "Fan") {
+        var newYorkCities = ["COOLING FAN REXNORD -REC 6025 A24 24VDC", "OPERATOR FAN", "Motor Assy. Fan 24270-13131-71"];
+        newYorkCities.forEach(function (city) {
+          var option = document.createElement("option");
+          option.text = city;
+          cityDropdown.add(option);
+        });
+      } // Add more states and their cities here
+    }
+  </script> -->
+
+
+  <script>
+    const apiUrl4 = 'http://127.0.0.1:5000/datalist2'; // Update the URL to your backend endpoint
+
+    document.getElementById('addRow2').addEventListener('click', async function () {
+
+      const data1 = await fetchData(apiUrl4)
+
+      const partcode = new Set(data1.map(item => item.category))
+      const partcodearray = Array.from(partcode)
+
+      let optionContent = "<option selected disabled></option>"
+      partcodearray.forEach(category => {
+        optionContent += '<option value="' + category + '">' + category + '</option>'
+      });
+
+
+      const newRow = document.createElement('tr');
+      newRow.innerHTML = `<td><input type="text" name="materialId[]" /></td>
+                    <td>
+                      <select onchange="updatePropertiesDropdown(this)" class="input-cell" id="mid-list">
+                        <option disabled selected value="">Select an option...</option>
+                        `+ optionContent + `
+                      </select>
+                    </td>
+                    <td>
+    <select class="propertiesDropdown">
+      <!-- Options will be populated dynamically -->
+    </select>
+  </td>
+  <td><input type="number" name="quantity[]" /></td>
+  <td><button class="reset-button" onclick="resetRow(this)">Reset</button></td>
+   `;
+
+      // Append the new row
+      document.querySelector('#editableTable2 tbody').appendChild(newRow);
+
+      // Fetch categories for the newly added row
+      const categorySelect = document.getElementById('mid-list2'); // Select by ID
+
+
+      // fetchData(apiUrl3)
+      //   .then(data1 => {
+      //     const datalist1 = document.getElementById('mid-list2');
+      //     const partcode = new Set(data1.map(item => item.category))
+      //     const partcodearray = Array.from(partcode)
+      //     console.log(partcodearray);
+      //     datalist1.innerHTML = '';
+      //     partcodearray.forEach(category => {
+      //       // console.log(option);
+      //       const optionElement = document.createElement('option');
+      //       optionElement.value = category; // Assuming your data structure has a 'value' property
+      //       optionElement.text = category
+      //       datalist1.appendChild(optionElement);
+      //     });
+      //     // populateDropdown(categorySelect, data1);
+
+      //   })
+      //   .catch(error => {
+      //     console.error('Usage error:', error);
+      //   });
+
+    });
+  </script>
+  <script>
+    // ... Your existing code ...
+
+    function addissueData2() {
+
+      const employeeIdInput = document.getElementById("outgoing_order_product_name").value;
+      const table = document.getElementById('editableTable2');
+      const rows = table.querySelectorAll('tbody tr');
+      const rowData = [];
+
+      rows.forEach(row => {
+        const cells = row.querySelectorAll('td input, td select');
+        const rowValues = {};
+
+        cells.forEach((cell, index) => {
+          const columnName = getColumnName(index); // Define a function to map indexes to column names
+          rowValues[columnName] = cell.value;
+        });
+
+        rowData.push(rowValues);
+      });
+
+      // Display the input data in the console log
+      // console.log(employeeIdInput);
+      // console.log(rowData);
+      result = { employeeIdInput: employeeIdInput, rowData: rowData }
+      var json_object = JSON.stringify({ result: result });
+
+
+      fetch("http://127.0.0.1:5000/prois", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: json_object
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response data
+          alert(data);
+          //   window.location.href = "file:///C:/Users/Admin/Desktop/IFB%20project/login.html";
+        })
+        .catch(error => {
+          console.error("Error sending data:", error);
+        });
+    }
+
+    // Define a function to map indexes to column names
+    function getColumnName(index) {
+      const columnNames = ['materialId2', 'category2', 'description2', 'quantity2'];
+      return columnNames[index];
+    }
+
+
+
+  </script>
+
+
+  <script>
+    async function fetchData(apiUrl) {
+      try {
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error('Fetch error:', error);
+        throw error;
+      }
+    }
+
+    const apiUrl = 'http://127.0.0.1:5000/api/data'; // Update the URL to your backend endpoint
+    fetchData(apiUrl)
+      .then(data => {
+        // Function to populate the datalist with fetched mid values
+        function populateDatalist(options) {
+          const datalist = document.getElementById('mid-list');
+          options.forEach(option => {
+            const optionElement = document.createElement('option');
+            optionElement.value = option.mid; // Assuming your data structure has a 'mid' property
+            datalist.appendChild(optionElement);
+          });
+        }
+
+        // Call the function to populate the datalist
+        populateDatalist(data);
+      })
+      .catch(error => {
+        console.error('Usage error:', error);
+      });
+  </script>
+  <script>
+    // JavaScript
+    function updatestock() {
+      // Get the values of the form elements
+      const materialId = document.getElementById('fruits').value;
+      const updateQuantity = document.getElementById('qt22').value;
+
+      // Log the values to the console
+      // console.log('MATERIAL ID:', materialId);
+      // console.log('UPDATE QUANTITY:', updateQuantity);
+      const result = { materialId: materialId, updateQuantity: updateQuantity }
+      console.log(result);
+      // You can perform further actions with the data here
+      // For example, you can send it to a server for processing or update the UI.
+
+      var json_object = JSON.stringify({ result: result });
+
+
+      fetch("http://127.0.0.1:5000/newinsert", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: json_object
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response data
+          console.log(data);
+          alert(data);
+          //   window.location.href = "file:///C:/Users/Admin/Desktop/IFB%20project/login.html";
+        })
+        .catch(error => {
+          console.error("Error sending data:", error);
+        });
+    }
+
+  </script>
+  <script>
+    const textElement = document.getElementById('blinkText');
+    const textElement1 = document.getElementById('blinkText1');
+    const textElement2 = document.getElementById('blinkText2');
+
+    function toggleVisibility() {
+        textElement.style.visibility = (textElement.style.visibility === 'hidden') ? 'visible' : 'hidden';
+        textElement1.style.visibility = (textElement1.style.visibility === 'hidden') ? 'visible' : 'hidden';
+        textElement2.style.visibility = (textElement2.style.visibility === 'hidden') ? 'visible' : 'hidden';
+    }
+
+    // Blink the text every 1000 milliseconds (half a second)
+    setInterval(toggleVisibility, 1500);
+</script>
+</body>
+
+</html>
