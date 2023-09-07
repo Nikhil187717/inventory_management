@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <input type="date" id="startDate"> <!-- Input for selecting the start date of the week -->
+  <button onclick="updateChart()">Update Chart</button> <!-- Button to update the chart -->
+
+  <canvas id="stackedChartID" style="height: 175px; width: 600px;"></canvas>
+  
+  <script>
+    // Initial data for the chart
+    var initialData = {
+      labels: [],
+      datasets: [{
+        label: 'Location 1',
+        backgroundColor: "blue",
+        data: [],
+      }, {
+        label: 'Location 2',
+        backgroundColor: "green",
+        data: [],
+      }, {
+        label: 'Location 3',
+        backgroundColor: "red",
+        data: [],
+      }, {
+        label: 'Location 4',
+        backgroundColor: "orange",
+        data: [],
+      }],
+    };
+
+    var myContext = document.getElementById("stackedChartID").getContext('2d');
+    var myChart = new Chart(myContext, {
+      type: 'bar',
+      data: initialData, // Set the initial data
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Material Consumption by Location for the Selected Week'
+          },
+        },
+        scales: {
+          x: {
+            stacked: true,
+          },
+          y: {
+            stacked: true,
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Quantity Consumed'
+            }
+          }
+        },
+      }
+    });
+
+    // Function to update the chart data based on the selected week
+    function updateChart() {
+      var startDate = new Date(document.getElementById("startDate").value);
+      var dateLabels = [];
+      var data = {
+        labels: dateLabels,
+        datasets: []
+      };
+
+      // Generate date labels for the selected week
+      for (var i = 0; i < 7; i++) {
+        var currentDate = new Date(startDate);
+        currentDate.setDate(startDate.getDate() + i);
+        var formattedDate = currentDate.toLocaleDateString('en-GB', {
+          day: 'numeric',
+          month: 'numeric',
+          year: 'numeric'
+        });
+        dateLabels.push(formattedDate);
+      }
+
+      // Update dataset based on your data source (you can replace this with your actual data)
+      data.datasets = [{
+        label: 'Location 1',
+        backgroundColor: "blue",
+        data: [30, 40, 20, 50, 60, 25, 45], // Replace with your data
+      }, {
+        label: 'Location 2',
+        backgroundColor: "green",
+        data: [20, 15, 25, 35, 10, 30, 40], // Replace with your data
+      }, {
+        label: 'Location 3',
+        backgroundColor: "red",
+        data: [10, 25, 15, 30, 20, 40, 50], // Replace with your data
+      }, {
+        label: 'Location 4',
+        backgroundColor: "orange",
+        data: [15, 35, 45, 20, 30, 10, 60], // Replace with your data
+      }];
+
+      // Update the chart with new data
+      myChart.data = data;
+      myChart.update();
+    }
+  </script>
+
+</body>
+</html>
