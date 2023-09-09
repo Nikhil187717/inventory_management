@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <input type="date" id="startDate"> <!-- Input for selecting the start date of the week -->
+  <button onclick="updateChart()">Update Chart</button> <!-- Button to update the chart -->
+
+  <canvas id="stackedChartID" style="height: 175px; width: 600px;"></canvas>
+  
+  <script>
+    // Initial data for the chart (You can keep this empty)
+    var initialData = {
+      labels: [],
+      datasets: [],
+    };
+
+    var myContext = document.getElementById("stackedChartID").getContext('2d');
+    var myChart = new Chart(myContext, {
+      type: 'bar',
+      data: initialData, // Set the initial data
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Material Consumption by Location for the Selected Week'
+          },
+        },
+        scales: {
+          x: {
+            stacked: true,
+          },
+          y: {
+            stacked: true,
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Quantity Consumed'
+            }
+          }
+        },
+      }
+    });
+
+    // Function to update the chart data based on the selected week
+    function updateChart() {
+      var startDate = new Date(document.getElementById("startDate").value);
+
+      // Make an API request to fetch data from your server
+      fetch(`/api/locationData?startDate=${startDate.toISOString()}`)
+        .then(response => response.json())
+        .then(data => {
+          // Update the chart with the fetched data
+          myChart.data = data;
+          myChart.update();
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    }
+  </script>
+</body>
+</html>
